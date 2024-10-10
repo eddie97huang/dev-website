@@ -12,10 +12,9 @@ with open(sys.argv[2], 'w') as output_file:
           line = replace_tag(line)
         else:
           in_tags = False
-      else:
-        if "tags:" in line:
-          if "[" in line:
-            line = replace_tag(line)
-          else:
-            in_tags = True
+      if "tags:" in line:
+        if "[" in line:
+          line = replace_tag(line)
+        else:
+          in_tags = True
       output_file.write(line)
